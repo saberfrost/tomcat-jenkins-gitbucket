@@ -11,12 +11,12 @@ ENV CATALINA_HOME=/usr/local/tomcat
 COPY tomcat-users.xml $CATALINA_HOME/conf/tomcat-users.xml
 
 # gitbucket
-#Add https://github.com/gitbucket/gitbucket/releases/download/3.13/gitbucket.war $CATALINA_HOME/webapps/gitbucket.war
-COPY gitbucket.war $CATALINA_HOME/webapps/gitbucket.war
+Add https://github.com/gitbucket/gitbucket/releases/download/3.13/gitbucket.war $CATALINA_HOME/webapps/gitbucket.war
+#COPY gitbucket.war $CATALINA_HOME/webapps/gitbucket.war
 
 # jenkins
-#Add http://mirrors.jenkins-ci.org/war/2.0/jenkins.war $CATALINA_HOME/webapps/jenkins.war
-COPY jenkins.war $CATALINA_HOME/webapps/jenkins.war 
+Add http://mirrors.jenkins-ci.org/war/2.0/jenkins.war $CATALINA_HOME/webapps/jenkins.war
+#COPY jenkins.war $CATALINA_HOME/webapps/jenkins.war 
 
 WORKDIR $CATALINA_HOME
 
