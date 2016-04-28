@@ -1,0 +1,22 @@
+tomcat:
+  restart: always
+  image: docker.io/saberfrost/tomcat-gitbucket-jenkins
+  volumes:
+    - /var/docker/jenkins:/var/jenkins
+    - /var/docker/gitbucket:/var/gitbucket
+nginx-fpm:
+  restart: always
+  image: docker.io/saberfrost/nginx-fpm
+  ports:
+    - "10080:80"
+  volumes:
+    - /var/docker/wikitten:/var/www
+nginx-proxy:
+  restart: always
+  links:
+    - tomcat:tomcat
+  image: docker.io/saberfrost/nginx-proxy
+  ports:
+    - "80:80"
+  volumes:
+    - /var/docker/www:/var/www
